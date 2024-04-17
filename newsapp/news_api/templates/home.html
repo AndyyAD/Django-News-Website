@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title> Around - news Website </title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container flexNav">
+            <a href="{% url 'home' %}">
+                <h1 class="logo"> Around News </h1>
+            </a>
+            <div class="newsFilter">
+                <ul class="navLinks filterList">
+                    <li class="nav-item active">
+                        <a href="{% url 'home' %}"> All </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="{% url 'home' %}?category=technology">Technology</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="{% url 'home' %}?category=health">Health</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="{% url 'home' %}?category=Entertainment">Entertainment</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="{% url 'home' %}?category=Sports">Sports</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="{% url 'home' %}?category=Science">Science</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="{% url 'home' %}?category=Business">Business</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main container2">
+        <h1 class="mainHead"> Latest News: </h1>
+        <h2 class="mainDate"> Updated a minute ago </h2>
+        {% for article in articles %}
+        <div class="article">
+            <img class="newsImg" src="{{ article.urlToImage }}" />
+            <div class="newsText">
+                <h1 class="newsHead"> {{ article.title }} </h1>
+                <div class="newsDesc">
+                    <p> {{ article.description }} </p>
+                </div>
+                <p class="newsDate"> {{ article.publishedAt }} </p>
+            </div>
+        </div>
+        {% endfor %}
+    </main>
+
+    <footer class="footmain">
+        <p class="footdesc"> Designed by <span> Ashish Deb </span> ❤️ </p>
+    </footer>
+
+</body>
+
+</html>
