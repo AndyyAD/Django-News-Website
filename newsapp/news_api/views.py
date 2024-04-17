@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import requests
 
-API_KEY = '724468afc665447b9a3079447a45dcd5'
+API_KEY = 'my-secret-api-code' # paste your own free api code from news api
 
 def home(request):
     country = 'in'
