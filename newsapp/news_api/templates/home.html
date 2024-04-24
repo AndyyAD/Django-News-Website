@@ -50,16 +50,18 @@
         <h1 class="mainHead"> Latest News: </h1>
         <h2 class="mainDate"> Updated a minute ago </h2>
         {% for article in articles %}
-        <div class="article">
-            <img class="newsImg" src="{{ article.urlToImage }}" />
-            <div class="newsText">
-                <h1 class="newsHead"> {{ article.title }} </h1>
-                <div class="newsDesc">
-                    <p> {{ article.description }} </p>
+        <a href="{{ article.url }}">
+            <div class="article">
+                <img class="newsImg" src="{{ article.urlToImage }}" />
+                <div class="newsText">
+                    <h1 class="newsHead"> {{ article.title }} </h1>
+                    <div class="newsDesc">
+                        <p> {{ article.description }} </p>
+                    </div>
+                    <p class="newsDate"> {{ article.publishedAt }} </p>
                 </div>
-                <p class="newsDate"> {{ article.publishedAt }} </p>
             </div>
-        </div>
+        </a>
         {% endfor %}
     </main>
 
